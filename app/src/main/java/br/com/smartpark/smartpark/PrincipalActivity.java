@@ -48,14 +48,14 @@ public class PrincipalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(PrincipalActivity.this, PrincipalActivity.class));
             }
-        });
+        });*/
 
         btnNovoAgendamento = findViewById(R.id.btnNovoAgendamento);
         btnNovoAgendamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PrincipalActivity.this, PrincipalActivity.class));
+                startActivity(new Intent(PrincipalActivity.this, NovoAgedamento.class));
             }
-        });*/
+        });
     }
 }
