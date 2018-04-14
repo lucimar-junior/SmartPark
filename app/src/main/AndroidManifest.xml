@@ -25,7 +25,8 @@
         </activity>
         <activity android:name=".PrincipalActivity" />
         <activity android:name=".CadastroVeiculos" />
-        <activity android:name=".MeusVeiculos"></activity>
+        <activity android:name=".MeusVeiculos" />
+        <activity android:name=".CadastroUsuario"></activity>
     </application>
 
 </manifest>
