@@ -18,7 +18,7 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        btnMeusVeiculos = findViewById(R.id.btnMeusVeiculos);
+        btnMeusVeiculos = (ImageButton)findViewById(R.id.btnMeusVeiculos);
         btnMeusVeiculos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +26,7 @@ public class PrincipalActivity extends AppCompatActivity {
             }
         });
 
-        btnNovoVeiculo = findViewById(R.id.btnNovoVeiculo);
+        btnNovoVeiculo = (ImageButton)findViewById(R.id.btnNovoVeiculo);
         btnNovoVeiculo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,15 +40,15 @@ public class PrincipalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(PrincipalActivity.this, PrincipalActivity.class));
             }
-        });
+        });*/
 
-        btnAlterarCadastro = findViewById(R.id.btnAlterarCadastro);
+        btnAlterarCadastro = (ImageButton)findViewById(R.id.btnAlterarCadastro);
         btnAlterarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PrincipalActivity.this, PrincipalActivity.class));
+                startActivity(new Intent(PrincipalActivity.this, CadastroUsuario.class));
             }
-        });*/
+        });
 
         btnNovoAgendamento = findViewById(R.id.btnNovoAgendamento);
         btnNovoAgendamento.setOnClickListener(new View.OnClickListener() {

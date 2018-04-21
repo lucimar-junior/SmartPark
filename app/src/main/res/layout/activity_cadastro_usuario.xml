@@ -11,12 +11,11 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="16dp"
         android:text="Cadastro de usuário"
         android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/textView25"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -24,10 +23,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView24"
         app:layout_constraintEnd_toStartOf="@+id/textView24"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
         app:layout_constraintTop_toTopOf="@+id/textView24"
         app:srcCompat="@drawable/ic_pessoa" />
 
@@ -35,11 +33,9 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="39dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Nome"
-        app:layout_constraintEnd_toStartOf="@+id/txtNome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -47,67 +43,64 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:layout_marginEnd="51dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
         android:text="CPF"
-        app:layout_constraintBottom_toTopOf="@+id/textView27"
-        app:layout_constraintEnd_toStartOf="@+id/txtCpf"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="64dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginStart="16dp"
         android:text="Telefone/Celular"
         app:layout_constraintBottom_toBottomOf="@+id/txtTelefone"
-        app:layout_constraintEnd_toStartOf="@+id/txtTelefone"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/txtTelefone" />
 
     <EditText
         android:id="@+id/txtNome"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="7dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="49dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtCpf"
+        app:layout_constraintBottom_toTopOf="@+id/txtTelefone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toTopOf="@+id/textView24" />
 
     <EditText
         android:id="@+id/txtCpf"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="106dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtNomeCartao"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/txtTelefone"
+        app:layout_constraintEnd_toEndOf="@+id/txtTelefone"
+        app:layout_constraintStart_toStartOf="@+id/txtNome"
+        app:layout_constraintTop_toTopOf="@+id/txtNome" />
 
     <EditText
         android:id="@+id/txtTelefone"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="17dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView28"
+        app:layout_constraintBottom_toTopOf="@+id/textView28"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView27"
-        app:layout_constraintTop_toTopOf="@+id/txtCpf" />
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
         android:id="@+id/textView28"
@@ -124,9 +117,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="63dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
         app:srcCompat="@drawable/ic_cartao_credito" />
 
     <TextView
@@ -164,7 +157,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         android:text="Código de Segurança"
         app:layout_constraintEnd_toStartOf="@+id/txtCodSeguranca"
         app:layout_constraintStart_toStartOf="@+id/textView31"
@@ -200,55 +193,73 @@
         android:id="@+id/txtValidade"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="43dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginBottom="91dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="92dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView32"
-        app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
-        app:layout_constraintStart_toStartOf="@+id/txtCodSeguranca"
-        app:layout_constraintTop_toTopOf="@+id/textView30" />
+        app:layout_constraintBottom_toBottomOf="@+id/txtBandeira"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView31"
+        app:layout_constraintTop_toTopOf="@+id/txtNomeCartao" />
 
     <EditText
         android:id="@+id/txtCodSeguranca"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="88dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="91dp"
+        android:layout_marginBottom="83dp"
+        android:layout_marginTop="83dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView31"
-        app:layout_constraintTop_toTopOf="@+id/txtNumero" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnSalvar"
+        app:layout_constraintEnd_toEndOf="@+id/txtBandeira"
+        app:layout_constraintStart_toStartOf="@+id/txtValidade"
+        app:layout_constraintTop_toTopOf="@+id/textView30" />
 
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="16dp"
         android:text="Salvar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnVoltar" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnVoltar"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnVoltar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
         android:text="Voltar"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSalvar"
-        app:layout_constraintStart_toEndOf="@+id/btnCadastrarVeiculos" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
+        app:layout_constraintTop_toBottomOf="@+id/txtBandeira" />
 
-    <Button
-        android:id="@+id/btnCadastrarVeiculos"
+    <TextView
+        android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
         android:layout_marginStart="16dp"
-        android:text="Cadastrar veículos"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnVoltar"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="53dp"
+        android:text="Bandeira"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtCodSeguranca" />
+
+    <EditText
+        android:id="@+id/txtBandeira"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="42dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="49dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtValidade"
+        app:layout_constraintStart_toStartOf="@+id/txtTelefone"
+        app:layout_constraintTop_toTopOf="@+id/textView32" />
 </android.support.constraint.ConstraintLayout>
