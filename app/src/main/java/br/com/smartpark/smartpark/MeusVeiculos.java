@@ -1,18 +1,57 @@
 package br.com.smartpark.smartpark;
 
+import android.app.ListActivity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class MeusVeiculos extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MeusVeiculos extends ListActivity {
     ImageButton btnNovoVeiculo;
+    ListView listView;
+    DatabaseHelper myDb;
+    String[] modelo;
+    String[] placa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meus_veiculos);
+
+        listView = (ListView) findViewById(R.id.listVeiculos);
+        myDb = new DatabaseHelper(this);
+
+        Cursor res = myDb.getVeiculo();
+        if (res.getCount() == 0) {
+            Toast.makeText(MeusVeiculos.this, "Não foi possível localizar os veículos!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //StringBuffer buffer = new StringBuffer();
+
+        int i = 0;
+        while (res.moveToNext()) {
+            placa[i] = res.getString(3);
+            modelo[i] = res.getString(2);
+            /*buffer.append("ID: " + res.getString(0) + "\n");
+            buffer.append("Marca: " + res.getString(1) + "\n");
+            buffer.append("Modelo: " + res.getString(2) + "\n");
+            buffer.append("Placa: " + res.getString(3) + "\n");
+            buffer.append("Cor: " + res.getString(4) + "\n");*/
+        }
+
+        ListAdapter myAdapter = new ListAdapter(MeusVeiculos.this, placa, modelo);
+        //ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, marcas);
+        //showMessage("Dados", buffer.toString());
+
+        listView.setAdapter(myAdapter);
 
         btnNovoVeiculo = findViewById(R.id.btnMais);
         btnNovoVeiculo.setOnClickListener(new View.OnClickListener() {
@@ -23,4 +62,11 @@ public class MeusVeiculos extends AppCompatActivity {
         });
     }
 
+    public void showMessage(String title, String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
 }
