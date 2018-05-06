@@ -1,5 +1,7 @@
 package br.com.smartpark.smartpark;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,10 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+
 public class CadastroVeiculos extends AppCompatActivity {
     DatabaseHelper myDb;
     EditText txtMarca, txtModelo, txtPlaca, txtCor;
-    Button btnSalvar;
+    FloatingActionButton btnSalvar, btnCancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +29,15 @@ public class CadastroVeiculos extends AppCompatActivity {
         txtPlaca = (EditText)findViewById(R.id.txtPlaca);
         txtCor = (EditText)findViewById(R.id.txtCor);
 
-        btnSalvar = (Button)findViewById(R.id.btnSalvar);
+        btnSalvar = (FloatingActionButton)findViewById(R.id.btnSalvar);
+        btnCancelar = (FloatingActionButton)findViewById(R.id.btnCancelar);
+
+        SimpleMaskFormatter simpleMaskPlaca = new SimpleMaskFormatter("UUU-NNNN");
+        MaskTextWatcher maskPlaca = new MaskTextWatcher(txtPlaca, simpleMaskPlaca);
+        txtPlaca.addTextChangedListener(maskPlaca);
 
         insertVeiculo();
+        cancelar();
     }
 
     private void insertVeiculo() {
@@ -36,11 +47,21 @@ public class CadastroVeiculos extends AppCompatActivity {
                 boolean isInserted = myDb.insertVeiculo(txtMarca.getText().toString(), txtModelo.getText().toString(), txtPlaca.getText().toString(), txtCor.getText().toString());
                 if(isInserted){
                     Toast.makeText(CadastroVeiculos.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(CadastroVeiculos.this, PrincipalActivity.class));
                 }
 
                 else{
                     Toast.makeText(CadastroVeiculos.this, "Erro ao cadastrar!", Toast.LENGTH_LONG).show();;
                 }
+            }
+        });
+    }
+
+    private void cancelar(){
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CadastroVeiculos.this, PrincipalActivity.class));
             }
         });
     }

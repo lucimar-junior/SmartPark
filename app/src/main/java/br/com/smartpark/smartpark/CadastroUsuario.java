@@ -1,5 +1,7 @@
 package br.com.smartpark.smartpark;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +12,7 @@ import android.widget.Toast;
 public class CadastroUsuario extends AppCompatActivity {
     DatabaseHelper myDb;
     EditText txtNome, txtCpf, txtTelefone, txtNomeCartao, txtNumeroCartao, txtValidade, txtCodSeguranca, txtBandeira;
-    Button btnSalvar;
+    FloatingActionButton btnSalvar, btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,11 @@ public class CadastroUsuario extends AppCompatActivity {
         txtCodSeguranca = (EditText)findViewById(R.id.txtCodSeguranca);
         txtBandeira = (EditText)findViewById(R.id.txtBandeira);
 
-        btnSalvar = (Button)findViewById(R.id.btnSalvar);
+        btnSalvar = (FloatingActionButton)findViewById(R.id.btnSalvar);
+        btnVoltar = (FloatingActionButton)findViewById(R.id.btnVoltar);
 
         insertUsuario();
+        cancelar();
     }
 
     private void insertUsuario() {
@@ -44,6 +48,15 @@ public class CadastroUsuario extends AppCompatActivity {
                 else{
                     Toast.makeText(CadastroUsuario.this, "Erro ao cadastrar!", Toast.LENGTH_LONG).show();;
                 }
+            }
+        });
+    }
+
+    private void cancelar(){
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CadastroUsuario.this, PrincipalActivity.class));
             }
         });
     }

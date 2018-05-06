@@ -65,23 +65,6 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PrincipalActivity.this, MeusVeiculos.class));
-                /*Cursor res = myDb.getVeiculo();
-                if (res.getCount() == 0) {
-                    Toast.makeText(PrincipalActivity.this, "Não foi possível localizar os veículos!", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                StringBuffer buffer = new StringBuffer();
-
-                while (res.moveToNext()) {
-                    buffer.append("ID: " + res.getString(0) + "\n");
-                    buffer.append("Marca: " + res.getString(1) + "\n");
-                    buffer.append("Modelo: " + res.getString(2) + "\n");
-                    buffer.append("Placa: " + res.getString(3) + "\n");
-                    buffer.append("Cor: " + res.getString(4) + "\n");
-                }
-
-                showMessage("Dados", buffer.toString());*/
             }
         });
     }

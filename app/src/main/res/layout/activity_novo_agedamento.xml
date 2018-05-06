@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.smartpark.smartpark.NovoAgedamento">
+    tools:context="br.com.smartpark.smartpark.NovoAgedamento"
+    tools:layout_editor_absoluteY="81dp">
 
     <ImageView
         android:id="@+id/imageView11"
@@ -22,7 +23,7 @@
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="141dp"
+        android:layout_marginEnd="140dp"
         android:layout_marginTop="16dp"
         android:text="Nova Reserva"
         android:textSize="30dp"
@@ -38,14 +39,14 @@
         android:layout_marginTop="10dp"
         android:text="Selecione uma opção:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <RadioButton
         android:id="@+id/rbtDiarista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:text="Diarista"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
@@ -54,7 +55,7 @@
         android:id="@+id/rbtAvulso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:text="Avulso"
         app:layout_constraintStart_toEndOf="@+id/textView34"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
@@ -63,17 +64,17 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
         android:text="Data de entrada"
-        app:layout_constraintBottom_toTopOf="@+id/txtDtEntrada"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rbtDiarista" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="12dp"
         android:text="Data de saída"
         app:layout_constraintBottom_toTopOf="@+id/txtDtSaida"
         app:layout_constraintStart_toStartOf="@+id/txtDtSaida" />
@@ -82,16 +83,16 @@
         android:id="@+id/txtDtEntrada"
         android:layout_width="0dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="31dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtHoraEntrada"
+        app:layout_constraintBottom_toTopOf="@+id/textView37"
         app:layout_constraintEnd_toStartOf="@+id/txtDtSaida"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbtDiarista" />
+        app:layout_constraintTop_toTopOf="@+id/textView35" />
 
     <EditText
         android:id="@+id/txtDtSaida"
@@ -118,7 +119,7 @@
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="12dp"
         android:text="Hora de saída"
         app:layout_constraintBottom_toTopOf="@+id/txtHoraSaida"
         app:layout_constraintStart_toStartOf="@+id/txtHoraSaida" />
@@ -129,7 +130,7 @@
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/txtHoraSaida"
@@ -147,22 +148,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtHoraEntrada" />
 
-    <Button
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:layout_marginStart="8dp"
-        android:text="Salvar"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="17dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnCancelar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_concluir" />
 
-    <Button
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="114dp"
-        android:text="Cancelar"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSalvar"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
+        app:srcCompat="@drawable/ic_cancelar" />
+
 </android.support.constraint.ConstraintLayout>
