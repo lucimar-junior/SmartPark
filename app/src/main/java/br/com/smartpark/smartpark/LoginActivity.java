@@ -29,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +58,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
     Button btnEntrar;
+    Button btnCadastrar;
+    EditText txtEmail;
+
 
     @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -67,12 +73,24 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
+                  /*  Toast.makeText(LoginActivity.this, "Insira o E-mail!", Toast.LENGTH_LONG).show();*/
+                startActivity(new Intent( LoginActivity.this, PrincipalActivity.class));
+            }
+
+
+        });
+
+
+        btnCadastrar = findViewById(R.id.btnCadastrar);
+        btnCadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, CadastroUsuario.class));
             }
         });
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.txtEmail);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -87,8 +105,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.btnEntrar);
-        /*mEmailSignInButton.setOnClickListener(new OnClickListener() {
+
+
+
+        //TODO: Descomentar para validar login
+        /*Button mEmailSignInButton = (Button) findViewById(R.id.btnEntrar);
+        mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
