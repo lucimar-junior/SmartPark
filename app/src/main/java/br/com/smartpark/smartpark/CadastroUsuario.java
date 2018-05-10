@@ -40,9 +40,12 @@ public class CadastroUsuario extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean isInserted = myDb.insertUsuario(txtNome.getText().toString(), txtCpf.getText().toString(), txtTelefone.getText().toString(), txtNomeCartao.getText().toString(), txtNumeroCartao.getText().toString(), txtBandeira.getText().toString(), txtValidade.getText().toString(), txtCodSeguranca.getText().toString());
+                boolean isInserted = myDb.insertUsuario(txtNome.getText().toString(), txtCpf.getText().toString(), txtTelefone.getText().toString(),
+                                                                           txtNomeCartao.getText().toString(), txtNumeroCartao.getText().toString(),
+                                          txtBandeira.getText().toString(), txtValidade.getText().toString(), txtCodSeguranca.getText().toString());
                 if(isInserted){
                     Toast.makeText(CadastroUsuario.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
+                    finish();
                 }
 
                 else{
@@ -56,7 +59,7 @@ public class CadastroUsuario extends AppCompatActivity {
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CadastroUsuario.this, PrincipalActivity.class));
+                finish();
             }
         });
     }

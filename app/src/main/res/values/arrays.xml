@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opcoes">
+        <item name="editar">Editar</item>
+        <item name="excluir">Excluir</item>
+    </string-array>
+</resources>

@@ -70,7 +70,7 @@
     <EditText
         android:id="@+id/txtNome"
         android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
         android:layout_marginEnd="15dp"
         android:layout_marginTop="48dp"
@@ -84,7 +84,7 @@
     <EditText
         android:id="@+id/txtCpf"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="43dp"
@@ -98,7 +98,7 @@
     <EditText
         android:id="@+id/txtTelefone"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="135dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="135dp"
@@ -173,7 +173,7 @@
     <EditText
         android:id="@+id/txtNomeCartao"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
         android:layout_marginTop="18dp"
         android:ems="10"
@@ -186,7 +186,7 @@
     <EditText
         android:id="@+id/txtNumero"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
         android:layout_marginTop="11dp"
         android:ems="10"
@@ -199,7 +199,7 @@
     <EditText
         android:id="@+id/txtValidade"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="39dp"
         android:layout_marginEnd="1dp"
         android:layout_marginStart="1dp"
@@ -214,7 +214,7 @@
     <EditText
         android:id="@+id/txtCodSeguranca"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="9dp"
         android:ems="10"
@@ -239,7 +239,7 @@
     <EditText
         android:id="@+id/txtBandeira"
         android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="1dp"
         android:layout_marginStart="1dp"

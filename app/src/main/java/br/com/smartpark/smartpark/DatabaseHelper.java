@@ -273,9 +273,17 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
     }
 
-    /*public Integer deleteData (String ){
+    public boolean deleteVeiculo(String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, contentValues, "")
-    }*/
+        long result = db.delete(TABLE_VEICULO, "ID = :", new String[] { id });
+
+        if (result == 1) {
+            return false;
+        }
+
+        else{
+            return true;
+        }
+    }
 
 }

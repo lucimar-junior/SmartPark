@@ -1,6 +1,6 @@
 package br.com.smartpark.smartpark;
 
-import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,13 +52,37 @@ public class MeusVeiculos extends AppCompatActivity {
                 startActivity(new Intent(MeusVeiculos.this, CadastroVeiculos.class));
             }
         });
+
+        listView.setOnItemLongClickListener (new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
+                showMessage();
+                return false;
+            }
+        });
     }
 
-    public void showMessage(String title, String message){
+    public void showMessage(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(message);
+        builder.setItems(R.array.opcoes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0){
+                    startActivity(new Intent(MeusVeiculos.this, CadastroVeiculos.class));
+                }
+                else if (which == 1){
+                    boolean isInserted = myDb.deleteVeiculo("8");
+                    if(isInserted){
+                        Toast.makeText(MeusVeiculos.this, "Excluído com sucesso!", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+
+                    else{
+                        Toast.makeText(MeusVeiculos.this, "Erro ao excluir!", Toast.LENGTH_LONG).show();;
+                    }
+                }
+            }
+        });
+
         builder.show();
     }
 }

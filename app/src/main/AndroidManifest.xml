@@ -28,7 +28,7 @@
         <activity android:name=".MeusVeiculos" />
         <activity android:name=".CadastroUsuario" />
         <activity android:name=".NovoAgedamento" />
-        <activity android:name=".ConsultaAgendamento"></activity>
+        <activity android:name=".ConsultaAgendamento" />
     </application>
 
 </manifest>

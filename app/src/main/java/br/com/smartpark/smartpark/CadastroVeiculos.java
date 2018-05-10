@@ -32,7 +32,7 @@ public class CadastroVeiculos extends AppCompatActivity {
         btnSalvar = (FloatingActionButton)findViewById(R.id.btnSalvar);
         btnCancelar = (FloatingActionButton)findViewById(R.id.btnCancelar);
 
-        SimpleMaskFormatter simpleMaskPlaca = new SimpleMaskFormatter("UUU-NNNN");
+        SimpleMaskFormatter simpleMaskPlaca = new SimpleMaskFormatter("LLL-NNNN");
         MaskTextWatcher maskPlaca = new MaskTextWatcher(txtPlaca, simpleMaskPlaca);
         txtPlaca.addTextChangedListener(maskPlaca);
 
@@ -61,7 +61,7 @@ public class CadastroVeiculos extends AppCompatActivity {
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CadastroVeiculos.this, PrincipalActivity.class));
+                finish();
             }
         });
     }
