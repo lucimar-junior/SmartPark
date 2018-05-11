@@ -162,6 +162,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return res;
     }
 
+    public Cursor getVeiculo(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_VEICULO, null);
+        return res;
+    }
+
     public Cursor getReserva(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM " + TABLE_RESERVA, null);
@@ -275,14 +281,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public boolean deleteVeiculo(String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_VEICULO, "ID = :", new String[] { id });
+        long result = db.delete(TABLE_VEICULO, "ID = ?", new String[] { id });
 
         if (result == 1) {
-            return false;
+            return true;
         }
 
         else{
-            return true;
+            return false;
         }
     }
 

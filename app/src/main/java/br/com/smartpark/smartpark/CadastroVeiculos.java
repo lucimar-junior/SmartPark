@@ -22,7 +22,19 @@ public class CadastroVeiculos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_veiculos);
 
+        final Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
         myDb = new DatabaseHelper(this);
+
+        if(bundle != null) {
+            String nomeRecuperado = bundle.getString("ID");
+            Toast.makeText(CadastroVeiculos.this, nomeRecuperado, Toast.LENGTH_LONG).show();
+        }
+
+        else{
+
+        }
 
         txtMarca = (EditText)findViewById(R.id.txtMarca);
         txtModelo = (EditText)findViewById(R.id.txtModelo);

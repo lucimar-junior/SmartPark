@@ -24,6 +24,17 @@
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+    <TextView
+        android:id="@+id/txtListId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtListPlaca"
+        android:layout_alignBottom="@+id/txtListPlaca"
+        android:layout_toEndOf="@+id/txtListPlaca"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:visibility="invisible" />
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
