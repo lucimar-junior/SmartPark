@@ -1,11 +1,9 @@
 package br.com.smartpark.smartpark;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,6 +30,8 @@ public class CadastroUsuario extends AppCompatActivity {
         btnSalvar = (FloatingActionButton)findViewById(R.id.btnSalvar);
         btnVoltar = (FloatingActionButton)findViewById(R.id.btnVoltar);
 
+        txtCpf.addTextChangedListener(Mask.insert(Mask.CPF_MASK, txtCpf));
+
         insertUsuario();
         cancelar();
     }
@@ -40,16 +40,14 @@ public class CadastroUsuario extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean isInserted = myDb.insertUsuario(txtNome.getText().toString(), txtCpf.getText().toString(), txtTelefone.getText().toString(),
-                                                                           txtNomeCartao.getText().toString(), txtNumeroCartao.getText().toString(),
-                                          txtBandeira.getText().toString(), txtValidade.getText().toString(), txtCodSeguranca.getText().toString());
+                boolean isInserted = myDb.insertUsuario(txtNome.getText().toString(), txtCpf.getText().toString(), txtTelefone.getText().toString(), txtNomeCartao.getText().toString(), txtNumeroCartao.getText().toString(), txtBandeira.getText().toString(), txtValidade.getText().toString(), txtCodSeguranca.getText().toString());
                 if(isInserted){
                     Toast.makeText(CadastroUsuario.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
                     finish();
                 }
 
                 else{
-                    Toast.makeText(CadastroUsuario.this, "Erro ao cadastrar!", Toast.LENGTH_LONG).show();;
+                    Toast.makeText(CadastroUsuario.this, "Erro ao cadastrar!", Toast.LENGTH_LONG).show();
                 }
             }
         });

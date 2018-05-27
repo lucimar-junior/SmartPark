@@ -19,7 +19,6 @@ public class MeusVeiculos extends AppCompatActivity {
     FloatingActionButton btnNovoVeiculo;
     ListView listView;
     DatabaseHelper myDb;
-    //TODO: fazer classe Veículos com os atributos abaixo
     ArrayList<String> modelo = new ArrayList<>();
     ArrayList<String> placa = new ArrayList<>();
     ArrayList<Integer> id = new ArrayList<>();
@@ -43,9 +42,8 @@ public class MeusVeiculos extends AppCompatActivity {
 
         listView.setOnItemLongClickListener (new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
-                String idSelecionado = ((TextView) view.findViewById(R.id.txtListId)).getText().toString();
+                String idSelecionado = ((TextView)findViewById(R.id.txtListId)).getText().toString();
                 showMessage(idSelecionado);
-                //Toast.makeText(MeusVeiculos.this, contactId, Toast.LENGTH_LONG).show();
                 return false;
             }
         });
@@ -71,7 +69,7 @@ public class MeusVeiculos extends AppCompatActivity {
                     }
 
                     else{
-                        Toast.makeText(MeusVeiculos.this, "Erro ao excluir!", Toast.LENGTH_LONG).show();;
+                        Toast.makeText(MeusVeiculos.this, "Erro ao excluir!", Toast.LENGTH_LONG).show();
                     }
                 }
             }

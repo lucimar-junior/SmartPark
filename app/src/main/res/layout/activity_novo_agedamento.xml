@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context="br.com.smartpark.smartpark.NovoAgedamento"
     tools:layout_editor_absoluteY="81dp">
 
     <ImageView
-        android:id="@+id/imageView11"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="1dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView33"
+        app:layout_constraintBottom_toTopOf="@+id/rgReserva"
         app:layout_constraintEnd_toStartOf="@+id/textView33"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView33"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_adicionar_circulo" />
 
     <TextView
@@ -28,53 +28,64 @@
         android:text="Nova Reserva"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:text="Selecione uma opção:"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
-    <RadioButton
-        android:id="@+id/rbtDiarista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Diarista"
+    <RadioGroup
+        android:id="@+id/rgReserva"
+        android:layout_width="169dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="104dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RadioButton
-        android:id="@+id/rbtAvulso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Avulso"
-        app:layout_constraintStart_toEndOf="@+id/textView34"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+        <RadioButton
+            android:id="@+id/rbtDiarista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Diarista"
+            app:layout_constraintTop_toBottomOf="@+id/textView34"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <RadioButton
+            android:id="@+id/rbtAvulso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Mensalista"
+            app:layout_constraintStart_toEndOf="@+id/textView34"
+            app:layout_constraintTop_toBottomOf="@+id/textView34" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="26dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
         android:text="Data de entrada"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbtDiarista" />
+        app:layout_constraintBottom_toTopOf="@+id/txtDtEntrada"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
         android:text="Data de saída"
         app:layout_constraintBottom_toTopOf="@+id/txtDtSaida"
         app:layout_constraintStart_toStartOf="@+id/txtDtSaida" />
@@ -83,16 +94,15 @@
         android:id="@+id/txtDtEntrada"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="232dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView37"
+        android:inputType="date"
         app:layout_constraintEnd_toStartOf="@+id/txtDtSaida"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView35" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtDtSaida"
@@ -100,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtDtEntrada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtDtEntrada" />
@@ -109,17 +119,17 @@
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
         android:text="Hora de entrada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/txtHoraEntrada"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="10dp"
         android:text="Hora de saída"
         app:layout_constraintBottom_toTopOf="@+id/txtHoraSaida"
         app:layout_constraintStart_toStartOf="@+id/txtHoraSaida" />
@@ -127,15 +137,15 @@
     <EditText
         android:id="@+id/txtHoraEntrada"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="49dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="364dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="time"
         app:layout_constraintEnd_toStartOf="@+id/txtHoraSaida"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtHoraSaida"
@@ -143,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="time"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtHoraEntrada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtHoraEntrada" />

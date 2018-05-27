@@ -1,15 +1,14 @@
 package br.com.smartpark.smartpark;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class PrincipalActivity extends AppCompatActivity {
+
     ImageButton btnMeusVeiculos;
     ImageButton btnNovoVeiculo;
     ImageButton btnConsultarAgendamento;
@@ -35,13 +34,13 @@ public class PrincipalActivity extends AppCompatActivity {
             }
         });
 
-        /*btnConsultarAgendamento = findViewById(R.id.btnConsultarAgendamento);
+        btnConsultarAgendamento = findViewById(R.id.btnConsultarAgendamento);
         btnConsultarAgendamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PrincipalActivity.this, PrincipalActivity.class));
+                startActivity(new Intent(PrincipalActivity.this, ConsultaAgendamento.class));
             }
-        });*/
+        });
 
         btnAlterarCadastro = (ImageButton)findViewById(R.id.btnAlterarCadastro);
         btnAlterarCadastro.setOnClickListener(new View.OnClickListener() {
@@ -76,4 +75,6 @@ public class PrincipalActivity extends AppCompatActivity {
         builder.setMessage(message);
         builder.show();
     }
+
+
 }

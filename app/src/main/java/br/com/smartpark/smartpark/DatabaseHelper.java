@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String DATABASE_NAME = "SmartPark.db";
+
     public static final String TABLE_USUARIO = "usuario";
     public static final String COL_1 = "Nome";
     public static final String COL_2 = "Cpf";
@@ -33,9 +34,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String TABLE_RESERVA = "Reserva";
     public static final String COL_17 = "DataEntrada";
     public static final String COL_18 = "DataSaida";
+    public static final String COL_19 = "HoraEntrada";
+    public static final String COL_20 = "HoraSaida";
 
     public static final String TABLE_VAGA = "Vaga";
-    public static final String COL_19 = "NumeroVaga";
+    public static final String COL_21 = "NumeroVaga";
 
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, 1);
@@ -44,10 +47,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE " + TABLE_USUARIO + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Nome TEXT, Cpf INTEGER, Telefone INTEGER, NomeCartao INTEGER, NumeroCartao INTEGER, ValidadeCartao INTEGER, CodSeguranca INTEGER)");
+
         db.execSQL("CREATE TABLE " + TABLE_VEICULO + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Marca TEXT, Modelo TEXT, Placa TEXT, Cor TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_CARTAO + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NomeImpresso TEXT, NumeroCartao INTEGER, Bandeira TEXT, Validade DATETIME, CodSeguranca INTEGER)");
-        db.execSQL("CREATE TABLE " + TABLE_RESERVA + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, DataEntrada DATETIME, DataSaida DATETIME)");
-        db.execSQL("CREATE TABLE " + TABLE_VAGA + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NumeroVaga INTEGER)");
+
+        db.execSQL("CREATE TABLE " + TABLE_CARTAO  + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NomeImpresso TEXT, NumeroCartao INTEGER, Bandeira TEXT, Validade DATETIME, CodSeguranca INTEGER)");
+
+        db.execSQL("CREATE TABLE " + TABLE_RESERVA + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, DataEntrada TEXT, DataSaida TEXT, HoraEntrada TEXT, HoraSaida TEXT)");
+
+        db.execSQL("CREATE TABLE " + TABLE_VAGA    + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NumeroVaga INTEGER)");
     }
 
     @Override
@@ -95,6 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         contentValues.put(COL_10, placa);
         contentValues.put(COL_11, cor);
 
+
         long result = db.insert(TABLE_VEICULO, null, contentValues);
 
         if (result == 1) {
@@ -118,37 +126,48 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         long result = db.insert(TABLE_CARTAO, null, contentValues);
 
         if (result == 1){
-            return false;
+            return true;
         }
         else {
-            return true;
+            return false;
         }
     }
 
-    public boolean insertReserva(String dataEntrada, String dataSaida){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_17, dataEntrada);
-        contentValues.put(COL_18, dataSaida);
+    public boolean insertReserva(String dataEntrada, String dataSaida, String horaEntrada, String horaSaida){
 
-        long result = db.insert(TABLE_RESERVA, null, contentValues);
-
-        if (result == 1){
+        if (dataEntrada.isEmpty() || dataSaida.isEmpty() || horaEntrada.isEmpty() || horaSaida.isEmpty()){
             return false;
-        }
-        else {
-            return true;
+
+        }   else {
+
+
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            ContentValues contentValues = new ContentValues();
+
+            contentValues.put(COL_17, dataEntrada);
+            contentValues.put(COL_18, dataSaida);
+            contentValues.put(COL_19, horaEntrada);
+            contentValues.put(COL_20, horaSaida);
+
+            long result = db.insert(TABLE_RESERVA, null, contentValues);
+
+            if (result <= 0) {
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 
     public boolean insertVaga(String numeroVaga){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_19, numeroVaga);
+        contentValues.put(COL_21, numeroVaga);
 
         long result = db.insert(TABLE_VAGA, null, contentValues);
 
-        if (result == 1){
+        if (result <= 0){
             return false;
         }
         else {
@@ -157,12 +176,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     public Cursor getVeiculo(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_VEICULO, null);
-        return res;
-    }
-
-    public Cursor getVeiculo(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM " + TABLE_VEICULO, null);
         return res;
@@ -250,7 +263,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public boolean updateVaga(String numerovaga){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_19, numerovaga);
+        contentValues.put(COL_21, numerovaga);
 
         long result = db.update(TABLE_VAGA, contentValues, "NumeroVaga", new String[]{numerovaga});
 
